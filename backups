@@ -1,0 +1,22 @@
+# access fortress
+# every 3 months, generate new key with command fortresskey 
+# in home directory:
+cd .private
+cat hpss.unix.keytab
+hsi
+# home directory is /home/allen715
+# dewoody directory is /group/fnrdewoody/allbackups/
+# my folder is /group/fnrdewoody/allbackups/allen715
+
+# create tar of directory 
+tar -czvf file.tar.gz directory
+
+# move files to fortress 
+cd /scratch/bell/allen715/
+
+curl -o Project_DeWoody_55_gDNA_multiqc_report.html -L "https://posting.biotech.illinois.edu/posting/dewoody/Project_DeWoody_55_gDNA_multiqc_report.html?x-email=dewoody%40purdue.edu&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=posting%2F20230329%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230329T123859Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=054644bfcddbf7a43f1cc2f28d76f3f15724756e900617570a3429fe74e8d4da"
+curl -o DeWoody_55_gDNA.2023328.tar.bz2 -L "https://posting.biotech.illinois.edu/posting/dewoody/DeWoody_55_gDNA.2023328.tar.bz2?x-email=dewoody%40purdue.edu&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=posting%2F20230329%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230329T123859Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=131e33ec4dbb28c17026da55dcb4b7ea67a0be35fbb5028dd6a06187a5ad251c"
+
+hsi -v put DeWoody_55_gDNA.2023328.tar.bz2 
+/group/fnrdewoody/allbackups/allen715/DeWoody_55_gDNA.2023328.tar.bz2
+tar -xvf DeWoody_55_gDNA.2023328.tar.bz2
