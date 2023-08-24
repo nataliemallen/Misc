@@ -1,0 +1,42 @@
+###R scripts for trees###
+
+library(ape) #load ape
+library(phytools) #load phytools
+
+#prune the tree to include (rather than exclude) a specific list of taxa
+mytree<-read.tree("phylogeny.tre") #load tree from file
+species<-c("species_1","species_2","species_8") #list of species to include
+pruned.tree<-drop.tip(mytree, setdiff(mytree$tip.label, species)); #prune tree
+write.tree(pruned.tree, file="pruned_phylogeny.tre") #save pruned tree to file
+
+#prune the tree to exclude specific taxa
+mytree<-read.tree("phylogeny.tre") #load tree from file
+pruned.trees<-drop.tip(mytree,tip=c("species_1","species_2")) #exclude listed species
+write.tree(pruned.tree, file="pruned_phylogeny.tre") #save pruned tree to file
+
+#plot tree with tip labels (using pruned tree from above)
+pdf(file="tree_figure.pdf", useDingbats=F)
+plot(pruned.tree, show.node.label=FALSE, label.offset=7, cex=0.8) 
+tiplabels(pch = 22, col = "black", adj = 2.5, bg=myLabel, cex = 1)
+axisPhylo(1)
+dev.off()
+
+#Gecko tree
+Diurnality_6gene.part1.Yule.trees.OUT.newick.tre
+#squamate tree
+Zheng_Wiens_2016_MPE_squamate.tre
+#vertebrate tree
+Irisarri_etal_2017_Fig3_14K_CATGTR-LN-BD-SB_CVed16b.ch2_sample.chronogram.tre
+
+#Viewing node numbers 
+> library(ape)
+> myTree <- ape::read.tree(text='((A,B),((C,D),(E,F)));')
+# Or tree<-read.tree(file="MyPhylogeny.tre")
+> plot(myTree)
+> nodelabels(text=1:myTree$Nnode,node=1:myTree$Nnode+Ntip(myTree))
+
+#Label nodes with Treeio
+> library(treeio)
+
+#trial node labels 
+((A,B) #1,((C,D) #0,(E,F) #1) #0) #0;
