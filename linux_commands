@@ -1,0 +1,7 @@
+# Helpful linux commands
+
+```bash
+# delete directory and contents
+rm -r directory
+
+```
