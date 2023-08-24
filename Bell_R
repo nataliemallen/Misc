@@ -1,0 +1,9 @@
+# running R on bell cluster
+
+module load r/4.1.2
+R
+
+# install packages
+install.packages('package')
+
+# personal library: ‘~/R/x86_64-pc-linux-gnu-library/4.1’
