@@ -7,3 +7,6 @@ R
 install.packages('package')
 
 # personal library: ‘~/R/x86_64-pc-linux-gnu-library/4.1’
+
+# quit R
+quit()
