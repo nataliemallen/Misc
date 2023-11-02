@@ -1,0 +1,5 @@
+# install LEA R packages
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+BiocManager::install("LEA")
