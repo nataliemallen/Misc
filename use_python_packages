@@ -1,0 +1,20 @@
+#start in home NOT scratch
+cd /home/allen715
+
+#load anaconda
+module load anaconda/2022.10-py39
+
+#create new env for packages
+conda-env-mod create -n natpackages
+
+###to use
+| To use this environment, load the following modules:          |
+|     module load use.own                                       |
+|     module load conda-env/natpackages-py3.9.13                |
+| (then standard 'conda install' / 'pip install' / run scripts) 
+###
+
+#install packages
+module load anaconda/2022.10-py39
+module load use.own
+module load conda-env/natpackages-py3.9.13  
