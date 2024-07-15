@@ -1,0 +1,26 @@
+###download fastq fles from NCBI
+#!/bin/bash
+
+# Define variables
+SRA_ID=SRR23615134
+OUTPUT_DIR=/scratch/negishi/allen715/Gray_whales/fin_whale
+
+# Create output directory if it doesn't exist
+mkdir -p $OUTPUT_DIR
+
+# Download and extract the SRA Toolkit
+wget https://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/current/sratoolkit.current-ubuntu64.tar.gz
+tar -xvzf sratoolkit.current-ubuntu64.tar.gz
+
+# Add SRA Toolkit to PATH
+export PATH=$PATH:$PWD/sratoolkit.current-ubuntu64/bin
+
+# Verify SRA Toolkit installation
+prefetch --version
+
+# Download the SRA file
+prefetch $SRA_ID --output-directory $OUTPUT_DIR
+
+# Convert SRA to FASTQ
+fastq-dump --outdir $OUTPUT_DIR --gzip --skip-technical --readids --dumpbase --split-3 --clip $OUTPUT_DIR/$SRA_ID.sra
+
