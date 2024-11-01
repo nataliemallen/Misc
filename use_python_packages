@@ -18,3 +18,6 @@ conda-env-mod create -n natpackages
 module load anaconda/2022.10-py39
 module load use.own
 module load conda-env/natpackages-py3.9.13  
+
+for graph-tool package:
+conda activate gt
